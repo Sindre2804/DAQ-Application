@@ -94,9 +94,9 @@
             this.groupBox1.Controls.Add(this.txtSampling);
             this.groupBox1.Controls.Add(this.btnSampling);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 30);
+            this.groupBox1.Location = new System.Drawing.Point(0, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 263);
+            this.groupBox1.Size = new System.Drawing.Size(227, 265);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sampling";
@@ -108,9 +108,9 @@
             this.groupBox2.Controls.Add(this.btnLogging);
             this.groupBox2.Controls.Add(this.txtLogging);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(227, 30);
+            this.groupBox2.Location = new System.Drawing.Point(227, 28);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 263);
+            this.groupBox2.Size = new System.Drawing.Size(540, 265);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Save to file";
@@ -143,7 +143,7 @@
             this.groupBox3.Size = new System.Drawing.Size(767, 196);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sensor Values";
+            this.groupBox3.Text = "ID, Value, Date";
             // 
             // txtSensorValues
             // 
@@ -154,7 +154,6 @@
             this.txtSensorValues.ReadOnly = true;
             this.txtSensorValues.Size = new System.Drawing.Size(761, 175);
             this.txtSensorValues.TabIndex = 8;
-            this.txtSensorValues.Text = "ID, Value, Date";
             // 
             // fileToolStripMenuItem
             // 
@@ -162,7 +161,7 @@
             this.exitToolStripMenuItem,
             this.selectFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
@@ -182,7 +181,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -194,7 +193,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(767, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(767, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 

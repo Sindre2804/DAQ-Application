@@ -41,13 +41,13 @@ namespace DAQ
             {
                 Sensors sensors = new Sensors(i);
                 double analogValues = Math.Round(((sensors.GetValue() * 10) - 5) * 65536) / 65536; //Converts to 16 bit resolution
-                txtSensorValues.Text += "\r\n" + $"{i + 1}, {analogValues}, {DateTime.Now} ";
+                txtSensorValues.Text += $"{i + 1}, {analogValues}, {DateTime.Now} " + "\r\n";
             }
             for (int i = 0; i < digitalIds; i++)
             {
                 Sensors sensors = new Sensors(i);
                 int digitalValues = (Convert.ToInt32(sensors.GetValue()) * 10) -5;
-                txtSensorValues.Text += "\r\n" + $"{analogIds + i + 1}, {digitalValues}, {DateTime.Now} ";
+                txtSensorValues.Text +=  $"{analogIds + i + 1}, {digitalValues}, {DateTime.Now} "+ "\r\n";
             }
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -88,16 +88,12 @@ namespace DAQ
                 saveFileDialog1.ShowDialog();
                 lblFileName.Text = saveFileDialog1.FileName;
             }
+            if(!File.Exists(saveFileDialog1.FileName))
+            {
+                string headers = "ID, MeasurmentValues(Volt), DateTime";
+                File.AppendAllLines(saveFileDialog1.FileName, new string[] { headers });
+            }
             File.AppendAllText(saveFileDialog1.FileName, txtSensorValues.Text);
-
-            //if (saveFileDialog1.FileName != "")
-            //{
-            //    using (var writer = new StreamWriter(saveFileDialog1.FileName))
-            //    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            //    {
-            //        csv.WriteRecords(txtSensorValues.Text);
-            //    }
-            //}
             timer2 = new System.Windows.Forms.Timer();
             timer2.Tick += new EventHandler(timer2_Tick);
             timer2.Interval = 1000; // 1 second
