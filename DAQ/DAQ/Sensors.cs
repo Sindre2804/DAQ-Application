@@ -19,7 +19,7 @@ namespace DAQ
         }
         public double GetValue()
         {
-            dVal = (rSenVal.NextDouble()*10)-5;
+            dVal = rSenVal.NextDouble();
             return dVal;
         }
         public int GetSensId()

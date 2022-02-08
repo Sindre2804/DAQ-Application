@@ -27,14 +27,28 @@ namespace DAQ
         private double loggingCounter = 51;
         private void btnSampling_Click(object sender, EventArgs e)
         {
-            int maxIds = 4;
-            for (int i = 0; i < maxIds; i++)
+            //int maxIds = 4;
+            //for (int i = 0; i < maxIds; i++)
+            //{
+            //    Sensors sensors = new Sensors(i);
+            //    double sensorValue = Math.Round(sensors.GetValue() * 65536) / 65536; //Converts to 16 bit resolution
+            //    txtSensorValues.Text += "\r\n" + $"{i+1}, {sensorValue}, {DateTime.Now} ";
+            //}
+
+            int analogIds = 3;
+            int digitalIds = 1;
+            for (int i = 0; i < analogIds; i++)
             {
                 Sensors sensors = new Sensors(i);
-                double sensorValue = Math.Round(sensors.GetValue() * 65536) / 65536; //Converts to 16 bit resolution
-                txtSensorValues.Text += "\r\n" + $"{i+1}, {sensorValue}, {DateTime.Now} ";
+                double analogValues = Math.Round(((sensors.GetValue() * 10) - 5) * 65536) / 65536; //Converts to 16 bit resolution
+                txtSensorValues.Text += "\r\n" + $"{i + 1}, {analogValues}, {DateTime.Now} ";
             }
-
+            for (int i = 0; i < digitalIds; i++)
+            {
+                Sensors sensors = new Sensors(i);
+                int digitalValues = (Convert.ToInt32(sensors.GetValue()) * 10) -5;
+                txtSensorValues.Text += "\r\n" + $"{analogIds + i + 1}, {digitalValues}, {DateTime.Now} ";
+            }
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 100; // 1 ms
